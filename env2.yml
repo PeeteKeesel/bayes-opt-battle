@@ -1,0 +1,7 @@
+name: bayes_opt_battle
+channels:
+  - anaconda
+dependencies:
+  - python=3.11.4
+  - ipython=8.14.0
+  - ipykernel=6.23.1
