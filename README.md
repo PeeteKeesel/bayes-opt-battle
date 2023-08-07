@@ -18,6 +18,7 @@ Ever wondered which bayesian optimization framework to use for your project? We 
 - [Bayesian Optimization Comparison](#bayesian-optimization-comparison)
   - [:books: Table of Contents](#books-table-of-contents)
   - [:dart: Summary](#dart-summary)
+  - [Installation](#installation)
   - [:bulb: Library Descriptions](#bulb-library-descriptions)
     - [:one: Optuna](#one-optuna)
     - [:two: BayesianOptimization](#two-bayesianoptimization)
@@ -29,9 +30,27 @@ Ever wondered which bayesian optimization framework to use for your project? We 
 
 ## :dart: Summary
 
-| Library :robot: | Tune Time :hourglass:  | Notebook :closed_book: | 
-| ---- | ---- | ---- |
-| Optuna | | [optuna.ipynb](notebooks/optuna.ipynb) | 
+We used [Kaggles student alcohol consumption datasets](https://www.kaggle.com/datasets/uciml/student-alcohol-consumption). The objective was to predict the final exam grade (column `G3`) of students.
+
+![G3 Dist](imgs/G3_dist.png)
+
+The dataset was partitioned into a train/test_val split using a 10-fold scheme. Within each train/test_val split, we performed an inner 5-fold cross-validation for hyperparameter tuning and model selection. The following table provides the confidence intervals of the 10 outer folds on the test set. We searched in 300 different parameter combinations for each library.
+
+| Library :robot:        | Tune Time :hourglass: | Accuracy | Recall | F1-Score | Notebook :closed_book: | 
+| ---------------------- | ---- | ---- | ---- | ---- | ---- |
+| `Optuna`               | | <span style="color: grey;">Train:</span> $X \pm Y$ <br> <span style="color: grey;">Test:</span> | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> | [optuna.ipynb](notebooks/optuna.ipynb) |
+| `BayesianOptimization` | | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> |  |
+| `BayesSearchCV`        | | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> |  |
+| `hyperopt`             | | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> |  |
+| `gp_minimize`          | | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> |  |
+
+## Installation
+
+To install the conda environment with conda, run the following command:
+
+```bash
+conda env create -f environment.yml
+```
 
 ## :bulb: Library Descriptions
 ### :one: [Optuna](https://optuna.org/)
@@ -56,7 +75,7 @@ def objective(trial):
                                  # ...  
                                  )
     
-    pipeline.fit(X_train, y_train)
+    clf.fit(X_train, y_train)
     y_pred = clf.predict(X_val)
     acc = accuracy_score(y_val, y_pred)
     
@@ -73,14 +92,15 @@ best_params = study.best_params
 ```
 
 
-While tuning Optuna provides logs in the following format 
+While tuning Optuna provides logs in the following format. This shows the log of the 1st, 150th and last trial:
 
 ```
-[I 2023-08-07 11:32:52,097] A new study created in memory with name: my_optuna_study
-[I 2023-08-07 11:32:52,296] Trial 0 finished with value: 0.15254237288135594 and parameters: {'n_estimators': 117, 'max_depth': 15, 'min_samples_split': 0.9872932015318743, 'min_samples_leaf': 0.12850314179489697}. Best is trial 0 with value: 0.15254237288135594.
-[I 2023-08-07 11:32:52,590] Trial 1 finished with value: 0.0847457627118644 and parameters: {'n_estimators': 189, 'max_depth': 15, 'min_samples_split': 0.4880445134056033, 'min_samples_leaf': 0.30119199350593756}. Best is trial 0 with value: 0.15254237288135594.
-[I 2023-08-07 11:32:52,774] Trial 2 finished with value: 0.0847457627118644 and parameters: {'n_estimators': 113, 'max_depth': 6, 'min_samples_split': 0.16337780557406967, 'min_samples_leaf': 0.3044302613012829}. Best is trial 0 with value: 0.15254237288135594.
+[I 2023-08-07 16:07:39,539] A new study created in memory with name: my_optuna_study
+[I 2023-08-07 16:07:39,809] Trial 0 finished with value: 0.1864406779661017 and parameters: {'n_estimators': 158, 'max_depth': 10, 'min_samples_split': 0.578748660317236, 'min_samples_leaf': 0.12410371173766938}. Best is trial 0 with value: 0.1864406779661017.
 ...
+[I 2023-08-07 16:08:21,456] Trial 150 finished with value: 0.1694915254237288 and parameters: {'n_estimators': 271, 'max_depth': 3, 'min_samples_split': 0.38567485569136783, 'min_samples_leaf': 0.13389811287208112}. Best is trial 55 with value: 0.22033898305084745.
+...
+[I 2023-08-07 16:09:02,867] Trial 299 finished with value: 0.1864406779661017 and parameters: {'n_estimators': 139, 'max_depth': 8, 'min_samples_split': 0.4866643968671017, 'min_samples_leaf': 0.19301363057724275}. Best is trial 55 with value: 0.22033898305084745.
 ```
 
 ### :two: [BayesianOptimization](https://github.com/bayesian-optimization/BayesianOptimization)
