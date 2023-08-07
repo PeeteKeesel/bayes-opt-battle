@@ -1,0 +1,20 @@
+name: bayes_opt_battle_4
+channels:
+  - defaults
+  - anaconda
+  - conda-forge
+dependencies:
+  - python=3.11.4
+  - numpy
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - seaborn
+  - ipykernel
+  - ipython
+  - jupyter
+  - jupyterlab
+  - optuna
+  - bayesian-optimization
+  - scikit-optimize
+  - hyperopt
