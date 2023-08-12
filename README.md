@@ -39,12 +39,30 @@ We used different machine learning models to show-case the results.
 
 | Library :robot:        | Tune Time :hourglass: | Precision | Recall | F1-Score | Notebook :closed_book: | 
 | ---------------------- | ---- | ---- | ---- | ---- | ---- |
-| `Baseline`             | None | Train: `1.000` <br> Test: `0.862` | Train: `1.000` <br> Test: `0.863` | Train: `1.000` <br> Test: `0.862` | [optuna.ipynb](notebooks/optuna.ipynb) |
-| `Optuna`               |  1m34s  | Train: `0.818` <br> Test: `0.778` | Train: `0.821` <br> Test: `0.786` | Train: `0.813` <br> Test: `0.772` | [optuna.ipynb](notebooks/optuna.ipynb) |
+| `Baseline`             | None | Train: `1.000` <br> Test: `0.862` | Train: `1.000` <br> Test: `0.863` | Train: `1.000` <br> Test: `0.862` | [baselines.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/main/notebooks/baselines__mobile_price_classification%20copy.ipynb) |
+| `Optuna`               |  1m9s  | Train: `0.818` <br> Test: `0.778` | Train: `0.821` <br> Test: `0.786` | Train: `0.813` <br> Test: `0.772` | [optuna.ipynb](notebooks/optuna.ipynb) |
 | `BayesianOptimization` | | Train:<br> Test:| Train:<br> Test:| Train:<br> Test:|  |
 | `BayesSearchCV`        | | Train:<br> Test:| Train:<br> Test:| Train:<br> Test:|  |
 | `hyperopt`             | | Train:<br> Test:| Train:<br> Test:| Train:<br> Test:|  |
 | `gp_minimize`          | | Train:<br> Test:| Train:<br> Test:| Train:<br> Test:|  |
+
+<table>
+  <tr>
+    <td><img src="imgs/rfc_cm_untuned.png.png" alt="Image 1"></td>
+    <td><img src="imgs/rfc_cm_optuna.png.png" alt="Image 2"></td>
+    <!-- <td><img src="image3.png" alt="Image 3"></td> -->
+  </tr>
+  <!-- <tr>
+    <td><img src="image4.png" alt="Image 4"></td>
+    <td><img src="image5.png" alt="Image 5"></td>
+    <td><img src="image6.png" alt="Image 6"></td>
+  </tr>
+  <tr>
+    <td><img src="image7.png" alt="Image 7"></td>
+    <td><img src="image8.png" alt="Image 8"></td>
+    <td><img src="image9.png" alt="Image 9"></td>
+  </tr> -->
+</table>
 
 ## Installation
 
