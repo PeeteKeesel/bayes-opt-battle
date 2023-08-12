@@ -39,8 +39,8 @@ We used different machine learning models to show-case the results.
 
 | Library :robot:        | Tune Time :hourglass: | Precision | Recall | F1-Score | Notebook :closed_book: | 
 | ---------------------- | ---- | ---- | ---- | ---- | ---- |
-| `Baseline`             | None | Train: `1.0000` <br> Test: `0.8623` | Train: `1.0000` <br> Test: `0.8633` | Train: `1.0000` <br> Test: `0.8627` | [optuna.ipynb](notebooks/optuna.ipynb) |
-| `Optuna`               |  1m34s  | Train: `0.8187` <br> Test: `0.7780` | Train: `0.8214` <br> Test: `0.7867` | Train: `0.8132` <br> Test: `0.7727` | [optuna.ipynb](notebooks/optuna.ipynb) |
+| `Baseline`             | None | Train: `1.000` <br> Test: `0.862` | Train: `1.000` <br> Test: `0.863` | Train: `1.000` <br> Test: `0.862` | [optuna.ipynb](notebooks/optuna.ipynb) |
+| `Optuna`               |  1m34s  | Train: `0.818` <br> Test: `0.778` | Train: `0.821` <br> Test: `0.786` | Train: `0.813` <br> Test: `0.772` | [optuna.ipynb](notebooks/optuna.ipynb) |
 | `BayesianOptimization` | | Train:<br> Test:| Train:<br> Test:| Train:<br> Test:|  |
 | `BayesSearchCV`        | | Train:<br> Test:| Train:<br> Test:| Train:<br> Test:|  |
 | `hyperopt`             | | Train:<br> Test:| Train:<br> Test:| Train:<br> Test:|  |
