@@ -18,6 +18,7 @@ Ever wondered which bayesian optimization framework to use for your project? We 
 - [Bayesian Optimization Comparison](#bayesian-optimization-comparison)
   - [:books: Table of Contents](#books-table-of-contents)
   - [:dart: Summary](#dart-summary)
+    - [RandomForestClassifier](#randomforestclassifier)
   - [Installation](#installation)
   - [:bulb: Library Descriptions](#bulb-library-descriptions)
     - [:one: Optuna](#one-optuna)
@@ -30,19 +31,20 @@ Ever wondered which bayesian optimization framework to use for your project? We 
 
 ## :dart: Summary
 
-We used [Kaggles student alcohol consumption datasets](https://www.kaggle.com/datasets/uciml/student-alcohol-consumption). The objective was to predict the final exam grade (column `G3`) of students.
+We used [Kaggles mobile price classification dataset](https://www.kaggle.com/datasets/iabhishekofficial/mobile-price-classification?datasetId=11167&sortBy=voteCount). The objective was to predict the `prive_range` of a mobile device. It is about a 4-class classification problem. We performed a short EDA on the dataset: [eda__mobile_price_classification.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/main/notebooks/eda__mobile_price_classification.ipynb).
 
-![G3 Dist](imgs/G3_dist.png)
+We used different machine learning models to show-case the results. 
 
-The dataset was partitioned into a train/test_val split using a 10-fold scheme. Within each train/test_val split, we performed an inner 5-fold cross-validation for hyperparameter tuning and model selection. The following table provides the confidence intervals of the 10 outer folds on the test set. We searched in 300 different parameter combinations for each library.
+### RandomForestClassifier
 
-| Library :robot:        | Tune Time :hourglass: | Accuracy | Recall | F1-Score | Notebook :closed_book: | 
+| Library :robot:        | Tune Time :hourglass: | Precision | Recall | F1-Score | Notebook :closed_book: | 
 | ---------------------- | ---- | ---- | ---- | ---- | ---- |
-| `Optuna`               | | <span style="color: grey;">Train:</span> $X \pm Y$ <br> <span style="color: grey;">Test:</span> | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> | [optuna.ipynb](notebooks/optuna.ipynb) |
-| `BayesianOptimization` | | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> |  |
-| `BayesSearchCV`        | | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> |  |
-| `hyperopt`             | | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> |  |
-| `gp_minimize`          | | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> | <span style="color: grey;">Train:</span> <br> <span style="color: grey;">Test:</span> |  |
+| `Baseline`             | None | Train: `1.0000` <br> Test: `0.8623` | Train: `1.0000` <br> Test: `0.8633` | Train: `1.0000` <br> Test: `0.8627` | [optuna.ipynb](notebooks/optuna.ipynb) |
+| `Optuna`               |  1m34s  | Train: `0.8187` <br> Test: `0.7780` | Train: `0.8214` <br> Test: `0.7867` | Train: `0.8132` <br> Test: `0.7727` | [optuna.ipynb](notebooks/optuna.ipynb) |
+| `BayesianOptimization` | | Train:<br> Test:| Train:<br> Test:| Train:<br> Test:|  |
+| `BayesSearchCV`        | | Train:<br> Test:| Train:<br> Test:| Train:<br> Test:|  |
+| `hyperopt`             | | Train:<br> Test:| Train:<br> Test:| Train:<br> Test:|  |
+| `gp_minimize`          | | Train:<br> Test:| Train:<br> Test:| Train:<br> Test:|  |
 
 ## Installation
 
@@ -144,4 +146,6 @@ $ pip install scikit-optimize
 
 
 ## :calendar: ToDo's
+
+- [ ] Visualise the learning process per library
 
