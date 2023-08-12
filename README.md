@@ -48,8 +48,8 @@ We used different machine learning models to show-case the results.
 
 <table>
   <tr>
-    <td><img src="imgs/rfc_cm_untuned.png.png" alt="Image 1"></td>
-    <td><img src="imgs/rfc_cm_optuna.png.png" alt="Image 2"></td>
+    <td><img src="imgs/rfc_cm_untuned.png" alt="Image 1"></td>
+    <td><img src="imgs/rfc_cm_optuna.png" alt="Image 2"></td>
     <!-- <td><img src="image3.png" alt="Image 3"></td> -->
   </tr>
   <!-- <tr>
