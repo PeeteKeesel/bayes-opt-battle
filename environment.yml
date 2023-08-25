@@ -18,3 +18,5 @@ dependencies:
   - bayesian-optimization
   - scikit-optimize
   - hyperopt
+  - huggingface_hub 
+  - datasets
