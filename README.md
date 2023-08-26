@@ -31,15 +31,41 @@ Ever wondered which bayesian optimization framework to use for your project? We 
 
 ## :dart: Summary
 
-We used [Kaggles mobile price classification dataset](https://www.kaggle.com/datasets/iabhishekofficial/mobile-price-classification?datasetId=11167&sortBy=voteCount). The objective was to predict the `prive_range` of a mobile device. It is about a 4-class classification problem. We performed a short EDA on the dataset: [eda__mobile_price_classification.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/main/notebooks/eda__mobile_price_classification.ipynb).
+We used [Huggingfaces spotify tracks dataset](https://huggingface.co/datasets/maharshipandya/spotify-tracks-dataset). The objective was to predict the `popularity` of a mobile device. It is about a 10-class classification problem. We performed a short EDA on the dataset: [eda__spotify_tracks.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/7fed8d739c1b02c84a1eff05c0d3a44cb108e686/notebooks/huggingface__spotify_tracks/eda__spotify_tracks.ipynb).
 
 We used different machine learning models to show-case the results. 
 
 ### RandomForestClassifier
 
+- `Baseline`
+```
+    Performance Results : RandomForestClassifier 
+    ========================================
+                    Train     Test      Delta(train,test)   
+        Accuracy  : 0.9867    0.5579       -0.4289
+        Precision : 0.9817    0.6632       -0.3185
+        Recall    : 0.9590    0.5680       -0.3910
+        F1-Score  : 0.9698    0.6044       -0.3653
+
+Tuning time: None
+```
+- `Optuna`
+```
+Optuna Results
+==============
+                Train     Test      Delta(train,test)   
+    Accuracy  : 0.5235    0.5239        0.0004
+    Precision : 0.2844    0.2842       -0.0002
+    Recall    : 0.2990    0.2993        0.0003
+    F1-Score  : 0.2264    0.2273        0.0009
+
+Tuning time: 6 min 24 sec
+```
+
+
 | Library :robot:        | Tune Time :hourglass: | Precision | Recall | F1-Score | Notebook :closed_book: | 
 | ---------------------- | ---- | ---- | ---- | ---- | ---- |
-| `Baseline`             | None | Train: `1.000` <br> Test: `0.862` | Train: `1.000` <br> Test: `0.863` | Train: `1.000` <br> Test: `0.862` | [baselines.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/main/notebooks/baselines__mobile_price_classification%20copy.ipynb) |
+| `Baseline`             | None | Train: `1.000` <br> Test: `0.862` | Train: `1.000` <br> Test: `0.863` | Train: `1.000` <br> Test: `0.862` | [baselines.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/7fed8d739c1b02c84a1eff05c0d3a44cb108e686/notebooks/huggingface__spotify_tracks/baselines__spotify_tracks.ipynb) |
 | `Optuna`               |  1m9s  | Train: `0.818` <br> Test: `0.778` | Train: `0.821` <br> Test: `0.786` | Train: `0.813` <br> Test: `0.772` | [optuna.ipynb](notebooks/optuna.ipynb) |
 | `BayesianOptimization` | | Train:<br> Test:| Train:<br> Test:| Train:<br> Test:|  |
 | `BayesSearchCV`        | | Train:<br> Test:| Train:<br> Test:| Train:<br> Test:|  |
@@ -48,8 +74,8 @@ We used different machine learning models to show-case the results.
 
 <table>
   <tr>
-    <td><img src="imgs/rfc_cm_untuned.png" alt="Image 1"></td>
-    <td><img src="imgs/rfc_cm_optuna.png" alt="Image 2"></td>
+    <td><img src="imgs/spotify_tracks/rfc_cm_untuned.png" alt="Image 1"></td>
+    <td><img src="imgs/spotify_tracks/rfc_cm_optuna.png" alt="Image 2"></td>
     <!-- <td><img src="image3.png" alt="Image 3"></td> -->
   </tr>
   <!-- <tr>
