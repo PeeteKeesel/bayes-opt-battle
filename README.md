@@ -37,7 +37,7 @@ We used different machine learning models to show-case the results.
 
 ### RandomForestClassifier
 
-- `Baseline`
+- `Baseline` | [baselines.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/baselines.ipynb)
 ```
     Performance Results : RandomForestClassifier 
     ========================================
@@ -49,8 +49,9 @@ We used different machine learning models to show-case the results.
 
 Tuning time: None
 ```
-- `Optuna`
+- `Optuna` | [optuna.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/optuna.ipynb)
 ```
+50 trials
 Optuna Results
 ==============
                 Train     Test      Delta(train,test)   
@@ -61,16 +62,50 @@ Optuna Results
 
 Tuning time: 6 min 24 sec
 ```
+- `BayesSearchCV` | [bayessearchcv.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/bayessearchcv.ipynb)
+```
+TODO
+```
+- `BayesianOptimization` | [bayesianoptimization.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/bayesianoptimization.ipynb)
+```
+5 trials
+BayesianOptimization Results
+============================
+                Train     Test      Delta(train,test)   
+    Accuracy  : 0.4859    0.4874        0.0015
+    Precision : 0.2789    0.2779       -0.0010
+    Recall    : 0.2744    0.2753        0.0010
+    F1-Score  : 0.2060    0.2066        0.0006
+
+Tuning time: 0 min 23 sec
+```
+- `hyperopt` | [hyperopt.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/hyperopt.ipynb)
+```
+5 trials
+Hyperopt Results
+===============
+                Train     Test      Delta(train,test)   
+    Accuracy  : 0.2058    0.2058       -0.0000
+    Precision : 0.0206    0.0206       -0.0000
+    Recall    : 0.1000    0.1000        0.0000
+    F1-Score  : 0.0341    0.0341       -0.0000
+
+Tuning time: 0 min 30 sec
+```
+- `gp_minimize` | [gpminimize.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/gpminimize.ipynb)
+```
+TODO
+```
 
 
 | Library :robot:        | Tune Time :hourglass: | Precision | Recall | F1-Score | Notebook :closed_book: | 
 | ---------------------- | ---- | ---- | ---- | ---- | ---- |
-| `Baseline`             | None | Train: `1.000` <br> Test: `0.862` | Train: `1.000` <br> Test: `0.863` | Train: `1.000` <br> Test: `0.862` | [baselines.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/7fed8d739c1b02c84a1eff05c0d3a44cb108e686/notebooks/huggingface__spotify_tracks/baselines__spotify_tracks.ipynb) |
-| `Optuna`               |  1m9s  | Train: `0.818` <br> Test: `0.778` | Train: `0.821` <br> Test: `0.786` | Train: `0.813` <br> Test: `0.772` | [optuna.ipynb](notebooks/optuna.ipynb) |
-| `BayesianOptimization` | | Train:<br> Test:| Train:<br> Test:| Train:<br> Test:|  |
-| `BayesSearchCV`        | | Train:<br> Test:| Train:<br> Test:| Train:<br> Test:|  |
-| `hyperopt`             | | Train:<br> Test:| Train:<br> Test:| Train:<br> Test:|  |
-| `gp_minimize`          | | Train:<br> Test:| Train:<br> Test:| Train:<br> Test:|  |
+| `Baseline`             | None | Train: `1.000` <br> Test: `0.862` | Train: `1.000` <br> Test: `0.863` | Train: `1.000` <br> Test: `0.862` | [baselines.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/baselines.ipynb) |
+| `Optuna`               |  1m9s  | Train: `0.818` <br> Test: `0.778` | Train: `0.821` <br> Test: `0.786` | Train: `0.813` <br> Test: `0.772` | [optuna.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/optuna.ipynb) |
+| `BayesianOptimization` | | Train:<br> Test:| Train:<br> Test:| Train:<br> Test:| [bayesianoptimization.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/bayesianoptimization.ipynb) |
+| `BayesSearchCV`        | | Train:<br> Test:| Train:<br> Test:| Train:<br> Test:| [bayessearchcv.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/bayessearchcv.ipynb) |
+| `hyperopt`             | | Train:<br> Test:| Train:<br> Test:| Train:<br> Test:| [hyperopt.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/hyperopt.ipynb) |
+| `gp_minimize`          | | Train:<br> Test:| Train:<br> Test:| Train:<br> Test:| [gpminimize.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/gpminimize.ipynb) |
 
 <table>
   <tr>
@@ -192,4 +227,6 @@ $ pip install scikit-optimize
 ## :calendar: ToDo's
 
 - [ ] Visualise the learning process per library
+- [ ] Run tunings for `Optuna`, `Bayesianotimization`, `hyperopt` for 300 trials
+- [ ] Fix `BayesSearchCV` and `gp_minimize` bug
 
