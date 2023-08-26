@@ -111,6 +111,8 @@ TODO
   <tr>
     <td><img src="imgs/spotify_tracks/rfc_cm_untuned.png" alt="Image 1"></td>
     <td><img src="imgs/spotify_tracks/rfc_cm_optuna.png" alt="Image 2"></td>
+    <td><img src="imgs/spotify_tracks/rfc_cm_bayesianoptimization.png" alt="Image 2"></td>
+    <td><img src="imgs/spotify_tracks/rfc_cm_hyperopt.png" alt="Image 2"></td>
     <!-- <td><img src="image3.png" alt="Image 3"></td> -->
   </tr>
   <!-- <tr>
