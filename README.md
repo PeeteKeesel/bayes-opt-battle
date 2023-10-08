@@ -17,8 +17,9 @@ Ever wondered which bayesian optimization framework to use for your project? We 
 ## :books: Table of Contents
 - [:bar\_chart: Bayesian Optimization Comparison](#bar_chart-bayesian-optimization-comparison)
   - [:books: Table of Contents](#books-table-of-contents)
-  - [:dart: Summary](#dart-summary)
-    - [RandomForestClassifier](#randomforestclassifier)
+- [:dart: Summary](#dart-summary)
+  - [Huggingface's Spotify Tracks Dataset](#huggingfaces-spotify-tracks-dataset)
+    - [(1) RandomForestClassifier](#1-randomforestclassifier)
   - [Installation](#installation)
   - [:bulb: Library Descriptions](#bulb-library-descriptions)
     - [:one: Optuna](#one-optuna)
@@ -27,18 +28,113 @@ Ever wondered which bayesian optimization framework to use for your project? We 
     - [:four: hyperopt](#four-hyperopt)
     - [:five: gp\_minimize](#five-gp_minimize)
 
-## :dart: Summary
+# :dart: Summary
 
-We used [Huggingfaces spotify tracks dataset](https://huggingface.co/datasets/maharshipandya/spotify-tracks-dataset). The objective was to predict the `popularity` of a mobile device. It is about a 10-class classification problem. We performed a short EDA on the dataset: [huggingface__spotify_tracks/eda.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/eda.ipynb).
+## Huggingface's [Spotify Tracks Dataset](https://huggingface.co/datasets/maharshipandya/spotify-tracks-dataset)
 
 - Number of rows: `114,000`
-- Number of columns: `21`
+  - Train: `77,520`
+  - Validation: `19,380`
+  - Test: `17,100`
+- Number of features: `15`
 - Target feature: `popularity`
   - Number of distinct values: `10`
 
-We used different machine learning models to show-case the results. 
+We used [Huggingfaces spotify tracks dataset](https://huggingface.co/datasets/maharshipandya/spotify-tracks-dataset). The objective was to predict the `popularity` of a mobile device. It is about a 10-class classification problem. We performed a short EDA on the dataset: [huggingface__spotify_tracks/eda.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/eda.ipynb).
 
-### RandomForestClassifier
+### (1) RandomForestClassifier
+
+The following shows the results on the `Test` set. 
+
+<u>n-trials: 50</u>
+
+<details>
+  <summary>Train</summary>
+
+
+| Library                | Tune Time | Precision | Recall | F1-Score | Notebook |
+| ---------------------- | ---- | ---- | ---- | ---- | ---- | 
+| `Baseline`             | None | `0.9817` | `0.9590` | `0.9698` | [baselines.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/baselines.ipynb) |
+| `Optuna`               | 6m2s  | `0.2839` | `0.3002` | `0.2292` | [optuna.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/optuna.ipynb) |
+| `BayesianOptimization` | | | | | [bayesianoptimization.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/bayesianoptimization.ipynb) |
+| `BayesSearchCV`        | | | | | [bayessearchcv.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/bayessearchcv.ipynb) |
+| `hyperopt`             | | | | | [hyperopt.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/hyperopt.ipynb) |
+| `gp_minimize`          | | | | | [gpminimize.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/gpminimize.ipynb) |
+
+</details>
+
+<details open>
+  <summary>Test</summary>
+
+
+| Library                | Tune Time | Precision | Recall | F1-Score | Notebook |
+| ---------------------- | ---- | ---- | ---- | ---- | ---- | 
+| `Baseline`             | None | `0.6632` | `0.5680` | `0.6044` | [baselines.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/baselines.ipynb) |
+| `Optuna`               | 6m2s  | `0.2835` | `0.3008` | `0.2304` | [optuna.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/optuna.ipynb) |
+| `BayesianOptimization` | | | | | [bayesianoptimization.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/bayesianoptimization.ipynb) |
+| `BayesSearchCV`        | | | | | [bayessearchcv.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/bayessearchcv.ipynb) |
+| `hyperopt`             | | | | | [hyperopt.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/hyperopt.ipynb) |
+| `gp_minimize`          | | | | | [gpminimize.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/gpminimize.ipynb) |
+
+</details>
+
+
+<u>n-trials: 100</u>
+
+<details>
+  <summary>Train</summary>
+
+
+| Library                | Tune Time | Precision | Recall | F1-Score | Notebook |
+| ---------------------- | ---- | ---- | ---- | ---- | ---- | 
+| `Baseline`             | None | `0.9817` | `0.9590` | `0.9698` | [baselines.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/baselines.ipynb) |
+| `Optuna`               | 6m2s  |  |  |  | [optuna.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/optuna.ipynb) |
+| `BayesianOptimization` | | | | | [bayesianoptimization.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/bayesianoptimization.ipynb) |
+| `BayesSearchCV`        | | | | | [bayessearchcv.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/bayessearchcv.ipynb) |
+| `hyperopt`             | | | | | [hyperopt.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/hyperopt.ipynb) |
+| `gp_minimize`          | | | | | [gpminimize.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/gpminimize.ipynb) |
+
+</details>
+
+<details open>
+  <summary>Test</summary>
+
+
+| Library                | Tune Time | Precision | Recall | F1-Score | Notebook |
+| ---------------------- | ---- | ---- | ---- | ---- | ---- | 
+| `Baseline`             | None | `0.6632` | `0.5680` | `0.6044` | [baselines.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/baselines.ipynb) |
+| `Optuna`               |   |  |  |  | [optuna.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/optuna.ipynb) |
+| `BayesianOptimization` | | | | | [bayesianoptimization.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/bayesianoptimization.ipynb) |
+| `BayesSearchCV`        | | | | | [bayessearchcv.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/bayessearchcv.ipynb) |
+| `hyperopt`             | | | | | [hyperopt.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/hyperopt.ipynb) |
+| `gp_minimize`          | | | | | [gpminimize.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/gpminimize.ipynb) |
+
+</details>
+
+
+<table>
+  <tr>
+    <td><img src="imgs/spotify_tracks/rfc_cm_untuned.png" alt="Image 1"></td>
+    <td><img src="imgs/spotify_tracks/rfc_cm_optuna.png" alt="Image 2"></td>
+    <td><img src="imgs/spotify_tracks/rfc_cm_bayesianoptimization.png" alt="Image 2"></td>
+    <td><img src="imgs/spotify_tracks/rfc_cm_hyperopt.png" alt="Image 2"></td>
+    <!-- <td><img src="image3.png" alt="Image 3"></td> -->
+  </tr>
+  <!-- <tr>
+    <td><img src="image4.png" alt="Image 4"></td>
+    <td><img src="image5.png" alt="Image 5"></td>
+    <td><img src="image6.png" alt="Image 6"></td>
+  </tr>
+  <tr>
+    <td><img src="image7.png" alt="Image 7"></td>
+    <td><img src="image8.png" alt="Image 8"></td>
+    <td><img src="image9.png" alt="Image 9"></td>
+  </tr> -->
+</table>
+
+
+<details>
+  <summary>See detailed summary:</summary>
 
 - `Baseline` | [baselines.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/baselines.ipynb)
 ```
@@ -105,35 +201,7 @@ Tuning time: 0 min 30 sec
 TODO
 ```
 
-
-| Library :robot:        | Tune Time :hourglass: | Precision | Recall | F1-Score | Notebook :closed_book: | 
-| ---------------------- | ---- | ---- | ---- | ---- | ---- |
-| `Baseline`             | None | Train: `1.000` <br> Test: `0.862` | Train: `1.000` <br> Test: `0.863` | Train: `1.000` <br> Test: `0.862` | [baselines.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/baselines.ipynb) |
-| `Optuna`               |  1m9s  | Train: `0.818` <br> Test: `0.778` | Train: `0.821` <br> Test: `0.786` | Train: `0.813` <br> Test: `0.772` | [optuna.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/optuna.ipynb) |
-| `BayesianOptimization` | | Train:<br> Test:| Train:<br> Test:| Train:<br> Test:| [bayesianoptimization.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/bayesianoptimization.ipynb) |
-| `BayesSearchCV`        | | Train:<br> Test:| Train:<br> Test:| Train:<br> Test:| [bayessearchcv.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/bayessearchcv.ipynb) |
-| `hyperopt`             | | Train:<br> Test:| Train:<br> Test:| Train:<br> Test:| [hyperopt.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/hyperopt.ipynb) |
-| `gp_minimize`          | | Train:<br> Test:| Train:<br> Test:| Train:<br> Test:| [gpminimize.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/gpminimize.ipynb) |
-
-<table>
-  <tr>
-    <td><img src="imgs/spotify_tracks/rfc_cm_untuned.png" alt="Image 1"></td>
-    <td><img src="imgs/spotify_tracks/rfc_cm_optuna.png" alt="Image 2"></td>
-    <td><img src="imgs/spotify_tracks/rfc_cm_bayesianoptimization.png" alt="Image 2"></td>
-    <td><img src="imgs/spotify_tracks/rfc_cm_hyperopt.png" alt="Image 2"></td>
-    <!-- <td><img src="image3.png" alt="Image 3"></td> -->
-  </tr>
-  <!-- <tr>
-    <td><img src="image4.png" alt="Image 4"></td>
-    <td><img src="image5.png" alt="Image 5"></td>
-    <td><img src="image6.png" alt="Image 6"></td>
-  </tr>
-  <tr>
-    <td><img src="image7.png" alt="Image 7"></td>
-    <td><img src="image8.png" alt="Image 8"></td>
-    <td><img src="image9.png" alt="Image 9"></td>
-  </tr> -->
-</table>
+</details>
 
 ## Installation
 
