@@ -1,4 +1,4 @@
-name: bayes_opt_battle_4
+name: bayes_opt_battle
 channels:
   - defaults
   - anaconda

@@ -1,6 +1,6 @@
 <div align="center">
 
-# Bayesian Optimization Comparison
+# :bar_chart: Bayesian Optimization Comparison
 
 ![Python](https://img.shields.io/badge/python-3.11.4-green)
 ![optuna](https://img.shields.io/badge/optuna-3.2.0-blue)
@@ -15,7 +15,7 @@ Ever wondered which bayesian optimization framework to use for your project? We 
 > This repository provides a general comparison of different [bayesian optimization](https://en.wikipedia.org/wiki/Bayesian_optimization) frameworks. 
 
 ## :books: Table of Contents
-- [Bayesian Optimization Comparison](#bayesian-optimization-comparison)
+- [:bar\_chart: Bayesian Optimization Comparison](#bar_chart-bayesian-optimization-comparison)
   - [:books: Table of Contents](#books-table-of-contents)
   - [:dart: Summary](#dart-summary)
     - [RandomForestClassifier](#randomforestclassifier)
@@ -26,12 +26,15 @@ Ever wondered which bayesian optimization framework to use for your project? We 
     - [:three: BayesSearchCV](#three-bayessearchcv)
     - [:four: hyperopt](#four-hyperopt)
     - [:five: gp\_minimize](#five-gp_minimize)
-  - [:pencil: My Notes](#pencil-my-notes)
-  - [:calendar: ToDo's](#calendar-todos)
 
 ## :dart: Summary
 
-We used [Huggingfaces spotify tracks dataset](https://huggingface.co/datasets/maharshipandya/spotify-tracks-dataset). The objective was to predict the `popularity` of a mobile device. It is about a 10-class classification problem. We performed a short EDA on the dataset: [eda__spotify_tracks.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/7fed8d739c1b02c84a1eff05c0d3a44cb108e686/notebooks/huggingface__spotify_tracks/eda__spotify_tracks.ipynb).
+We used [Huggingfaces spotify tracks dataset](https://huggingface.co/datasets/maharshipandya/spotify-tracks-dataset). The objective was to predict the `popularity` of a mobile device. It is about a 10-class classification problem. We performed a short EDA on the dataset: [huggingface__spotify_tracks/eda.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/eda.ipynb).
+
+- Number of rows: `114,000`
+- Number of columns: `21`
+- Target feature: `popularity`
+  - Number of distinct values: `10`
 
 We used different machine learning models to show-case the results. 
 
@@ -47,8 +50,9 @@ We used different machine learning models to show-case the results.
         Recall    : 0.9590    0.5680       -0.3910
         F1-Score  : 0.9698    0.6044       -0.3653
 
-Tuning time: None
+Tuning time: None, since no tuning has been performed
 ```
+
 - `Optuna` | [optuna.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/optuna.ipynb)
 ```
 50 trials
@@ -62,10 +66,12 @@ Optuna Results
 
 Tuning time: 6 min 24 sec
 ```
+
 - `BayesSearchCV` | [bayessearchcv.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/bayessearchcv.ipynb)
 ```
 TODO
 ```
+
 - `BayesianOptimization` | [bayesianoptimization.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/bayesianoptimization.ipynb)
 ```
 5 trials
@@ -79,6 +85,7 @@ BayesianOptimization Results
 
 Tuning time: 0 min 23 sec
 ```
+
 - `hyperopt` | [hyperopt.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/hyperopt.ipynb)
 ```
 5 trials
@@ -92,6 +99,7 @@ Hyperopt Results
 
 Tuning time: 0 min 30 sec
 ```
+
 - `gp_minimize` | [gpminimize.ipynb](https://github.com/PeeteKeesel/bayes-opt-battle/blob/9480eb9682e382fdd7bbe9e5efd4c981f2fb6173/notebooks/huggingface__spotify_tracks/gpminimize.ipynb)
 ```
 TODO
@@ -221,14 +229,3 @@ $ pip install scikit-optimize
 # Conda
 % conda install -c conda-forge scikit-optimize
 ```
-
-## :pencil: My Notes 
-
-
-
-## :calendar: ToDo's
-
-- [ ] Visualise the learning process per library
-- [ ] Run tunings for `Optuna`, `Bayesianotimization`, `hyperopt` for 300 trials
-- [ ] Fix `BayesSearchCV` and `gp_minimize` bug
-
